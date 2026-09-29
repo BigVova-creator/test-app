@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autentificare - TechStore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../public/css/style.css">
+</head>
+<body>
+<header class="header">
+    <div class="container header-top">
+        <a href="index.html" class="logo"><i class="fa-solid fa-mobile-screen-button"></i> TechStore</a>
+
+        <form class="search" action="product.html">
+            <input type="text" name="q" id="search-input" placeholder="Caută telefoane, căști, accesorii..." autocomplete="off">
+            <button type="submit" aria-label="Căutare"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+
+        <div class="header-icons">
+            <a href="login.html" id="account-link"><i class="fa-regular fa-user"></i> <span>Autentificare</span></a>
+            <a href="account.html#cart" class="cart-link">
+                <i class="fa-solid fa-cart-shopping"></i> <span>Coș</span>
+                <span class="cart-count" id="cart-count">0</span>
+            </a>
+            <button type="button" class="menu-btn" id="menu-btn" aria-label="Meniu"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </div>
+
+    <nav class="nav" id="nav">
+        <div class="container nav-list">
+            <a href="index.html" class="nav-link" data-page="home">Acasă</a>
+
+            <div class="nav-item">
+                <a href="product.html" class="nav-link" data-page="products">Produse <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown">
+                    <div class="container dropdown-content">
+                        <div class="dropdown-col">
+                            <h4>Categorii</h4>
+                            <a href="product.html">Toate produsele</a>
+                            <a href="category.html?c=Telefoane">Telefoane</a>
+                            <a href="category.html?c=Căști">Căști</a>
+                            <a href="category.html?c=Accesorii">Accesorii</a>
+                            <a href="category.html?c=Încărcătoare">Încărcătoare</a>
+                            <a href="category.html?c=Smartwatch-uri">Smartwatch-uri</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <a href="category.html?c=Telefoane" class="nav-link" data-page="Telefoane">Telefoane <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown">
+                    <div class="container dropdown-content">
+                        <div class="dropdown-col">
+                            <h4>Branduri</h4>
+                            <a href="category.html?c=Telefoane&amp;brand=Apple">Apple</a>
+                            <a href="category.html?c=Telefoane&amp;brand=Samsung">Samsung</a>
+                            <a href="category.html?c=Telefoane&amp;brand=Xiaomi">Xiaomi</a>
+                            <a href="category.html?c=Telefoane&amp;brand=Google">Google</a>
+                            <a href="category.html?c=Telefoane&amp;brand=OnePlus">OnePlus</a>
+                        </div>
+                        <div class="dropdown-col">
+                            <h4>Memorie</h4>
+                            <a href="category.html?c=Telefoane&amp;memory=64%20GB">64 GB</a>
+                            <a href="category.html?c=Telefoane&amp;memory=128%20GB">128 GB</a>
+                            <a href="category.html?c=Telefoane&amp;memory=256%20GB">256 GB</a>
+                            <a href="category.html?c=Telefoane&amp;memory=512%20GB">512 GB</a>
+                            <a href="category.html?c=Telefoane&amp;memory=1%20TB">1 TB</a>
+                        </div>
+                        <div class="dropdown-col">
+                            <h4>Telefoane</h4>
+                            <a href="category.html?c=Telefoane">Toate telefoanele</a>
+                            <a href="category.html?c=Accesorii">Huse și sticle de protecție</a>
+                            <a href="category.html?c=Încărcătoare">Încărcătoare</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <a href="category.html?c=Căști" class="nav-link" data-page="Căști">Căști <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown">
+                    <div class="container dropdown-content">
+                        <div class="dropdown-col">
+                            <h4>Tip</h4>
+                            <a href="category.html?c=Căști&amp;type=In-ear">In-ear</a>
+                            <a href="category.html?c=Căști&amp;type=Over-ear">Over-ear</a>
+                        </div>
+                        <div class="dropdown-col">
+                            <h4>Branduri</h4>
+                            <a href="category.html?c=Căști&amp;brand=Apple">Apple</a>
+                            <a href="category.html?c=Căști&amp;brand=Samsung">Samsung</a>
+                            <a href="category.html?c=Căști&amp;brand=Sony">Sony</a>
+                        </div>
+                        <div class="dropdown-col">
+                            <h4>Căști</h4>
+                            <a href="category.html?c=Căști">Toate căștile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="category.html?c=Accesorii" class="nav-link" data-page="Accesorii">Accesorii</a>
+            <a href="category.html?c=Smartwatch-uri" class="nav-link" data-page="Smartwatch-uri">Smartwatch-uri</a>
+        </div>
+    </nav>
+</header>
+
+<main class="container section">
+    <form class="form-box" id="login-form">
+        <h1>Autentificare</h1>
+        <p class="form-text">Intră în cont pentru a vedea coșul și datele tale.</p>
+
+        <div class="form-error" id="form-error" hidden></div>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="exemplu@mail.md" required>
+
+        <label for="password">Parolă</label>
+        <input type="password" id="password" name="password" placeholder="Parola ta" required>
+
+        <button type="submit" class="btn btn-primary btn-full">Autentificare</button>
+
+        <p class="form-link">Nu ai cont? <a href="register.html">Înregistrează-te</a></p>
+    </form>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <div>
+            <h3>TechStore</h3>
+            <p>Telefoane, căști și accesorii originale, cu garanție și livrare în toată Moldova.</p>
+        </div>
+        <div>
+            <h4>Categorii</h4>
+            <a href="category.html?c=Telefoane">Telefoane</a>
+            <a href="category.html?c=Căști">Căști</a>
+            <a href="category.html?c=Accesorii">Accesorii</a>
+            <a href="category.html?c=Încărcătoare">Încărcătoare</a>
+            <a href="category.html?c=Smartwatch-uri">Smartwatch-uri</a>
+        </div>
+        <div>
+            <h4>Magazin</h4>
+            <a href="product.html">Toate produsele</a>
+            <a href="account.html">Contul meu</a>
+            <a href="account.html#cart">Coșul de cumpărături</a>
+        </div>
+        <div>
+            <h4>Contacte</h4>
+            <p><i class="fa-solid fa-location-dot"></i> bd. Ștefan cel Mare 120, Chișinău</p>
+            <p><i class="fa-solid fa-phone"></i> +373 22 123 456</p>
+            <p><i class="fa-regular fa-envelope"></i> contact@techstore.md</p>
+            <p><i class="fa-regular fa-clock"></i> Luni - Sâmbătă, 09:00 - 19:00</p>
+        </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 TechStore. Toate drepturile rezervate.</div>
+</footer>
+
+<div class="message" id="message" hidden></div>
+
+<script src="../public/js/index.js"></script>
+<script src="../public/js/login.js"></script>
+</body>
+</html>
