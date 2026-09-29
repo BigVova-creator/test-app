@@ -22,17 +22,17 @@ $navItems = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= e($pageTitle) ?> — TechStore</title>
-    <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+    <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 <header class="site-header">
     <div class="container header-inner">
         <a href="index.php" class="logo" aria-label="TechStore — на главную">
-            <img src="assets/img/logo.svg" alt="" width="36" height="36">
+            <img src="../assets/img/logo.svg" alt="" width="36" height="36">
             <span>Tech<b>Store</b></span>
         </a>
 

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/includes/functions.php';
+require_once __DIR__ . '/../includes/functions.php';
 
 $errors = [];
 $old    = ['name' => '', 'company' => '', 'email' => '', 'message' => ''];
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $pageTitle  = 'Поиск спонсоров';
 $activePage = 'sponsors';
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/../includes/header.php';
 ?>
 
 <section class="page-hero">
@@ -99,4 +99,4 @@ require_once __DIR__ . '/includes/header.php';
     </form>
 </section>
 
-<?php require_once __DIR__ . '/includes/footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>

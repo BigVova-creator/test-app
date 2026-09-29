@@ -6,7 +6,7 @@
          data-category="<?= e(mb_strtolower($product['category'])) ?>"
          data-description="<?= e(mb_strtolower($product['description'])) ?>">
     <div class="product-image">
-        <img src="<?= e($product['image']) ?>" alt="<?= e($product['name']) ?>" loading="lazy">
+        <img src="../<?= e($product['image']) ?>" alt="<?= e($product['name']) ?>" loading="lazy">
         <?php if ($product['is_popular']): ?>
             <span class="badge">Хит</span>
         <?php endif; ?>

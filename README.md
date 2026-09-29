@@ -6,11 +6,11 @@
 
 | Файл | Описание |
 |------|----------|
-| `index.php` | Главная: шапка с меню, слайдер акций на JS, сетка популярных товаров |
-| `catalog.php` | Каталог из 2 категорий («Смартфоны», «Наушники») с «живым» поиском без перезагрузки |
-| `about.php` | О магазине: текст о компании, цифры, преимущества, контакты |
-| `sponsors.php` | Форма для партнёров (Имя, Компания, Email, Текст), данные сохраняются в таблицу `sponsors` |
-| `login.php` / `register.php` / `logout.php` | Вход, регистрация и выход через PHP-сессии, пароли хэшируются `password_hash` (bcrypt) |
+| `pages/index.php` | Главная: шапка с меню, слайдер акций на JS, сетка популярных товаров |
+| `pages/catalog.php` | Каталог из 2 категорий («Смартфоны», «Наушники») с «живым» поиском без перезагрузки |
+| `pages/about.php` | О магазине: текст о компании, цифры, преимущества, контакты |
+| `pages/sponsors.php` | Форма для партнёров (Имя, Компания, Email, Текст), данные сохраняются в таблицу `sponsors` |
+| `pages/login.php` / `register.php` / `logout.php` | Вход, регистрация и выход через PHP-сессии, пароли хэшируются `password_hash` (bcrypt) |
 | `init_db.php` | Создаёт `database.db`, таблицы `users`, `products`, `sponsors` и 6 тестовых товаров |
 
 ## Запуск
@@ -24,11 +24,14 @@ php -S localhost:8000    # запустить встроенный сервер
 
 Откройте http://localhost:8000
 
+Все страницы лежат в папке `pages/`. Корневой `index.php` перенаправляет на `pages/index.php`.
+
 ## Структура
 
 ```
-├── index.php, catalog.php, about.php, sponsors.php
-├── login.php, register.php, logout.php, init_db.php
+├── index.php            # редирект на pages/index.php
+├── init_db.php          # инициализация базы данных
+├── pages/               # index, catalog, about, sponsors, login, register, logout
 ├── includes/            # подключение к БД, общие функции, шапка, подвал, карточка товара
 └── assets/
     ├── css/style.css    # адаптивные стили (mobile-first брейкпоинты 960/820/600px)

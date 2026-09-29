@@ -45,7 +45,7 @@ if (PHP_SAPI === 'cli') {
                 <li><?= htmlspecialchars($line) ?></li>
             <?php endforeach; ?>
         </ul>
-        <a class="btn btn-primary btn-block" href="index.php">Перейти на главную</a>
+        <a class="btn btn-primary btn-block" href="pages/index.php">Перейти на главную</a>
     </div>
 </main>
 </body>

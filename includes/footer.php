@@ -4,7 +4,7 @@
     <div class="container footer-inner">
         <div class="footer-col">
             <a href="index.php" class="logo logo-light">
-                <img src="assets/img/logo.svg" alt="" width="32" height="32">
+                <img src="../assets/img/logo.svg" alt="" width="32" height="32">
                 <span>Tech<b>Store</b></span>
             </a>
             <p>Смартфоны и наушники с официальной гарантией и быстрой доставкой по всей России.</p>
@@ -27,6 +27,6 @@
     </div>
 </footer>
 
-<script src="assets/js/main.js"></script>
+<script src="../assets/js/main.js"></script>
 </body>
 </html>

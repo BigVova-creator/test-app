@@ -1,7 +1,7 @@
 <?php
 $pageTitle  = 'Каталог';
 $activePage = 'catalog';
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/../includes/header.php';
 
 $products = db()->query('SELECT * FROM products ORDER BY category DESC, price DESC')->fetchAll();
 
@@ -35,7 +35,7 @@ foreach ($products as $product) {
             <h2 class="category-title"><?= $category['icon'] ?> <?= e($title) ?></h2>
             <div class="product-grid">
                 <?php foreach ($category['items'] as $product): ?>
-                    <?php include __DIR__ . '/includes/product_card.php'; ?>
+                    <?php include __DIR__ . '/../includes/product_card.php'; ?>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -47,4 +47,4 @@ foreach ($products as $product) {
     </div>
 </section>
 
-<?php require_once __DIR__ . '/includes/footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>
