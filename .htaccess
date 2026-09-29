@@ -1,2 +1,2 @@
 Options -Indexes
-RedirectMatch 403 /(app|config|database|storage)/
+RedirectMatch 403 /(app|config|database)/

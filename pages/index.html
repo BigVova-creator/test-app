@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechStore - Telefoane și căști</title>
+    <title>TechStore - Telefoane, căști și accesorii</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../public/css/style.css">
 </head>
@@ -13,7 +13,7 @@
         <a href="index.html" class="logo"><i class="fa-solid fa-mobile-screen-button"></i> TechStore</a>
 
         <form class="search" action="product.html">
-            <input type="text" name="q" id="search-input" placeholder="Caută produse..." autocomplete="off">
+            <input type="text" name="q" id="search-input" placeholder="Caută telefoane, căști, accesorii..." autocomplete="off">
             <button type="submit" aria-label="Căutare"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
 
@@ -28,11 +28,81 @@
     </div>
 
     <nav class="nav" id="nav">
-        <div class="container">
-            <a href="index.html" class="active">Acasă</a>
-            <a href="product.html">Produse</a>
-            <a href="product.html?category=Telefoane">Telefoane</a>
-            <a href="product.html?category=Căști">Căști</a>
+        <div class="container nav-list">
+            <a href="index.html" class="nav-link" data-page="home">Acasă</a>
+
+            <div class="nav-item">
+                <a href="product.html" class="nav-link" data-page="products">Produse <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown">
+                    <div class="container dropdown-content">
+                        <div class="dropdown-col">
+                            <h4>Categorii</h4>
+                            <a href="product.html">Toate produsele</a>
+                            <a href="category.html?c=Telefoane">Telefoane</a>
+                            <a href="category.html?c=Căști">Căști</a>
+                            <a href="category.html?c=Accesorii">Accesorii</a>
+                            <a href="category.html?c=Încărcătoare">Încărcătoare</a>
+                            <a href="category.html?c=Smartwatch-uri">Smartwatch-uri</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <a href="category.html?c=Telefoane" class="nav-link" data-page="Telefoane">Telefoane <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown">
+                    <div class="container dropdown-content">
+                        <div class="dropdown-col">
+                            <h4>Branduri</h4>
+                            <a href="category.html?c=Telefoane&amp;brand=Apple">Apple</a>
+                            <a href="category.html?c=Telefoane&amp;brand=Samsung">Samsung</a>
+                            <a href="category.html?c=Telefoane&amp;brand=Xiaomi">Xiaomi</a>
+                            <a href="category.html?c=Telefoane&amp;brand=Google">Google</a>
+                            <a href="category.html?c=Telefoane&amp;brand=OnePlus">OnePlus</a>
+                        </div>
+                        <div class="dropdown-col">
+                            <h4>Memorie</h4>
+                            <a href="category.html?c=Telefoane&amp;memory=64%20GB">64 GB</a>
+                            <a href="category.html?c=Telefoane&amp;memory=128%20GB">128 GB</a>
+                            <a href="category.html?c=Telefoane&amp;memory=256%20GB">256 GB</a>
+                            <a href="category.html?c=Telefoane&amp;memory=512%20GB">512 GB</a>
+                            <a href="category.html?c=Telefoane&amp;memory=1%20TB">1 TB</a>
+                        </div>
+                        <div class="dropdown-col">
+                            <h4>Telefoane</h4>
+                            <a href="category.html?c=Telefoane">Toate telefoanele</a>
+                            <a href="category.html?c=Accesorii">Huse și sticle de protecție</a>
+                            <a href="category.html?c=Încărcătoare">Încărcătoare</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <a href="category.html?c=Căști" class="nav-link" data-page="Căști">Căști <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown">
+                    <div class="container dropdown-content">
+                        <div class="dropdown-col">
+                            <h4>Tip</h4>
+                            <a href="category.html?c=Căști&amp;type=In-ear">In-ear</a>
+                            <a href="category.html?c=Căști&amp;type=Over-ear">Over-ear</a>
+                        </div>
+                        <div class="dropdown-col">
+                            <h4>Branduri</h4>
+                            <a href="category.html?c=Căști&amp;brand=Apple">Apple</a>
+                            <a href="category.html?c=Căști&amp;brand=Samsung">Samsung</a>
+                            <a href="category.html?c=Căști&amp;brand=Sony">Sony</a>
+                        </div>
+                        <div class="dropdown-col">
+                            <h4>Căști</h4>
+                            <a href="category.html?c=Căști">Toate căștile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="category.html?c=Accesorii" class="nav-link" data-page="Accesorii">Accesorii</a>
+            <a href="category.html?c=Smartwatch-uri" class="nav-link" data-page="Smartwatch-uri">Smartwatch-uri</a>
         </div>
     </nav>
 </header>
@@ -41,19 +111,27 @@
     <section class="banner">
         <div class="container banner-content">
             <div class="banner-text">
-                <h1>Telefoane și căști la prețuri bune</h1>
-                <p>Reduceri de până la 20% la telefoanele noi. Livrare gratuită în Chișinău pentru comenzile de peste 1 000 lei.</p>
-                <a href="product.html" class="btn btn-primary">Vezi produsele</a>
+                <span class="banner-label">Ofertă de sezon</span>
+                <h1>Telefoane noi la prețuri bune</h1>
+                <p>Reduceri de până la 20% la telefoanele Apple, Samsung și Xiaomi. Livrare gratuită în Chișinău pentru comenzile de peste 1 000 lei.</p>
+                <div class="banner-buttons">
+                    <a href="category.html?c=Telefoane" class="btn btn-primary">Vezi telefoanele</a>
+                    <a href="product.html" class="btn btn-outline">Toate produsele</a>
+                </div>
             </div>
-            <img src="../public/images/products/phone-blue.svg" alt="Nova X12 Pro" class="banner-image">
+            <img src="../public/images/products/apple-iphone-15-pro.svg" alt="iPhone 15 Pro" class="banner-image">
         </div>
     </section>
 
-    <section class="container features">
-        <div class="feature"><i class="fa-solid fa-truck-fast"></i><div><strong>Livrare rapidă</strong><span>În 1-2 zile în toată Moldova</span></div></div>
-        <div class="feature"><i class="fa-solid fa-shield-halved"></i><div><strong>Garanție 2 ani</strong><span>Doar produse originale</span></div></div>
-        <div class="feature"><i class="fa-solid fa-credit-card"></i><div><strong>Plată în rate</strong><span>Fără dobândă</span></div></div>
-        <div class="feature"><i class="fa-solid fa-rotate-left"></i><div><strong>Retur 14 zile</strong><span>Fără întrebări</span></div></div>
+    <section class="container section">
+        <h2>Categorii</h2>
+        <div class="categories">
+            <a href="category.html?c=Telefoane" class="category-card"><i class="fa-solid fa-mobile-screen"></i><span>Telefoane</span></a>
+            <a href="category.html?c=Căști" class="category-card"><i class="fa-solid fa-headphones"></i><span>Căști</span></a>
+            <a href="category.html?c=Accesorii" class="category-card"><i class="fa-solid fa-shield-halved"></i><span>Accesorii</span></a>
+            <a href="category.html?c=Încărcătoare" class="category-card"><i class="fa-solid fa-plug"></i><span>Încărcătoare</span></a>
+            <a href="category.html?c=Smartwatch-uri" class="category-card"><i class="fa-regular fa-clock"></i><span>Smartwatch-uri</span></a>
+        </div>
     </section>
 
     <section class="container section">
@@ -65,13 +143,40 @@
             <p class="empty">Se încarcă...</p>
         </div>
     </section>
+
+    <section class="container section">
+        <h2>Branduri</h2>
+        <div class="brands">
+            <a href="category.html?c=Telefoane&amp;brand=Apple">Apple</a>
+            <a href="category.html?c=Telefoane&amp;brand=Samsung">Samsung</a>
+            <a href="category.html?c=Telefoane&amp;brand=Xiaomi">Xiaomi</a>
+            <a href="category.html?c=Telefoane&amp;brand=Google">Google</a>
+            <a href="category.html?c=Telefoane&amp;brand=OnePlus">OnePlus</a>
+            <a href="category.html?c=Căști&amp;brand=Sony">Sony</a>
+        </div>
+    </section>
+
+    <section class="container features">
+        <div class="feature"><i class="fa-solid fa-truck-fast"></i><div><strong>Livrare rapidă</strong><span>În 1-2 zile în toată Moldova</span></div></div>
+        <div class="feature"><i class="fa-solid fa-shield-halved"></i><div><strong>Garanție 2 ani</strong><span>Doar produse originale</span></div></div>
+        <div class="feature"><i class="fa-solid fa-credit-card"></i><div><strong>Plată în rate</strong><span>Fără dobândă</span></div></div>
+        <div class="feature"><i class="fa-solid fa-rotate-left"></i><div><strong>Retur 14 zile</strong><span>Fără întrebări</span></div></div>
+    </section>
 </main>
 
 <footer class="footer">
     <div class="container footer-content">
         <div>
             <h3>TechStore</h3>
-            <p>Telefoane și căști originale, cu garanție și livrare în toată Moldova.</p>
+            <p>Telefoane, căști și accesorii originale, cu garanție și livrare în toată Moldova.</p>
+        </div>
+        <div>
+            <h4>Categorii</h4>
+            <a href="category.html?c=Telefoane">Telefoane</a>
+            <a href="category.html?c=Căști">Căști</a>
+            <a href="category.html?c=Accesorii">Accesorii</a>
+            <a href="category.html?c=Încărcătoare">Încărcătoare</a>
+            <a href="category.html?c=Smartwatch-uri">Smartwatch-uri</a>
         </div>
         <div>
             <h4>Magazin</h4>
@@ -84,6 +189,7 @@
             <p><i class="fa-solid fa-location-dot"></i> bd. Ștefan cel Mare 120, Chișinău</p>
             <p><i class="fa-solid fa-phone"></i> +373 22 123 456</p>
             <p><i class="fa-regular fa-envelope"></i> contact@techstore.md</p>
+            <p><i class="fa-regular fa-clock"></i> Luni - Sâmbătă, 09:00 - 19:00</p>
         </div>
     </div>
     <div class="footer-bottom">&copy; 2026 TechStore. Toate drepturile rezervate.</div>

@@ -14,7 +14,7 @@ function showCart() {
 
         return `
             <div class="cart-item">
-                <img src="../public/images/products/${item.image}" alt="${item.name}">
+                <img src="${IMAGES_URL}${item.image}" alt="${item.name}">
                 <div class="cart-item-info">
                     <a href="details.html?id=${item.id}">${item.name}</a>
                     <span>${item.quantity} x ${formatPrice(item.price)}</span>

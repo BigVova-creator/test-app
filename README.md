@@ -1,23 +1,23 @@
 # TechStore
 
-Magazin online de telefoane și căști, făcut cu PHP, SQLite, HTML, CSS și JavaScript.
+Magazin online de telefoane, căști și accesorii, făcut cu PHP, MySQL, HTML, CSS și JavaScript.
 
-## Pornire
+## Pornire cu XAMPP
 
-Este nevoie de PHP 8 cu extensia `pdo_sqlite`.
+1. Copiați folderul proiectului în `C:\xampp\htdocs\techstore`.
+2. Porniți **Apache** și **MySQL** din XAMPP Control Panel.
+3. Deschideți http://localhost/techstore
 
-```bash
-php -S localhost:8000
-```
+Baza de date `techstore` se creează automat la prima pornire, din fișierul `database/schema.sql`.
+Se poate importa și manual din phpMyAdmin (Import -> `database/schema.sql`).
 
-Apoi deschideți http://localhost:8000
-
-Baza de date `storage/database.db` se creează automat la prima pornire, din fișierul `database/schema.sql`.
+Datele de conectare la MySQL sunt în `config/database.php` (implicit utilizatorul `root` fără parolă, ca în XAMPP).
 
 ## Pagini
 
-- `pages/index.html` - pagina principală cu produsele populare
-- `pages/product.html` - toate produsele, căutare și filtrare pe categorii
+- `pages/index.html` - pagina principală
+- `pages/product.html` - toate produsele cu filtre
+- `pages/category.html` - produsele unei categorii (de exemplu `category.html?c=Telefoane`)
 - `pages/details.html` - pagina unui produs
 - `pages/login.html` - autentificare
 - `pages/register.html` - înregistrare
@@ -32,6 +32,5 @@ config             database.php
 database           schema.sql
 public             css, js, images
 pages              paginile HTML
-storage            baza de date SQLite
 index.php          cererile către server
 ```

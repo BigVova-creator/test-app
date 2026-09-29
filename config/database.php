@@ -2,16 +2,22 @@
 
 function getConnection()
 {
-    $dbFile = __DIR__ . '/../storage/database.db';
-    $isNewDatabase = !file_exists($dbFile);
+    $host = 'localhost';
+    $dbName = 'techstore';
+    $user = 'root';
+    $password = '';
 
-    $db = new PDO('sqlite:' . $dbFile);
+    $db = new PDO("mysql:host=$host;charset=utf8mb4", $user, $password);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-    if ($isNewDatabase) {
+    $exists = $db->query("SHOW DATABASES LIKE '$dbName'")->fetch();
+
+    if (!$exists) {
         $db->exec(file_get_contents(__DIR__ . '/../database/schema.sql'));
     }
+
+    $db->exec("USE $dbName");
 
     return $db;
 }

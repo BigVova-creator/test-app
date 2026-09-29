@@ -11,12 +11,17 @@ class ProductService
         $this->db = $db;
     }
 
-    public function getAll()
+    public function getAll($category = '')
     {
-        $rows = $this->db->query('SELECT * FROM products ORDER BY id')->fetchAll();
+        if ($category !== '') {
+            $stmt = $this->db->prepare('SELECT * FROM products WHERE category = ? ORDER BY id');
+            $stmt->execute([$category]);
+        } else {
+            $stmt = $this->db->query('SELECT * FROM products ORDER BY id');
+        }
 
         $products = [];
-        foreach ($rows as $row) {
+        foreach ($stmt->fetchAll() as $row) {
             $products[] = new Product($row);
         }
 

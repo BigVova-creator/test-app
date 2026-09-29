@@ -14,9 +14,8 @@ if ($action === '') {
     exit;
 }
 
-function sendJson($data, $status = 200)
+function sendJson($data)
 {
-    http_response_code($status);
     header('Content-Type: application/json; charset=utf-8');
     echo json_encode($data, JSON_UNESCAPED_UNICODE);
     exit;
@@ -30,20 +29,26 @@ function postValue($key)
     return '';
 }
 
-$db = getConnection();
+try {
+    $db = getConnection();
+} catch (PDOException $e) {
+    sendJson(['error' => 'Nu se poate conecta la baza de date. Porniți MySQL din XAMPP.']);
+}
+
 $productService = new ProductService($db);
 $userService = new UserService($db);
 $isPost = $_SERVER['REQUEST_METHOD'] === 'POST';
 
 if ($action === 'products') {
-    sendJson($productService->getAll());
+    $category = isset($_GET['category']) && is_string($_GET['category']) ? $_GET['category'] : '';
+    sendJson($productService->getAll($category));
 }
 
 if ($action === 'product') {
     $product = $productService->getById((int) ($_GET['id'] ?? 0));
 
     if (!$product) {
-        sendJson(['error' => 'Produsul nu a fost găsit.'], 404);
+        sendJson(['error' => 'Produsul nu a fost găsit.']);
     }
 
     sendJson($product);
@@ -58,7 +63,7 @@ if ($action === 'register' && $isPost) {
     );
 
     if ($error) {
-        sendJson(['error' => $error], 400);
+        sendJson(['error' => $error]);
     }
 
     $user = $userService->findByEmail(postValue('email'));
@@ -72,7 +77,7 @@ if ($action === 'login' && $isPost) {
     $user = $userService->login(postValue('email'), postValue('password'));
 
     if (!$user) {
-        sendJson(['error' => 'Email sau parolă greșită.'], 401);
+        sendJson(['error' => 'Email sau parolă greșită.']);
     }
 
     session_regenerate_id(true);
@@ -98,4 +103,4 @@ if ($action === 'logout' && $isPost) {
     sendJson(['success' => true]);
 }
 
-sendJson(['error' => 'Pagina nu a fost găsită.'], 404);
+sendJson(['error' => 'Pagina nu a fost găsită.']);
