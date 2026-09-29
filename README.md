@@ -1,49 +1,37 @@
-# TechStore — интернет-магазин на PHP + SQLite
+# TechStore
 
-Интернет-магазин смартфонов и наушников на чистом PHP, JavaScript, HTML и CSS, без фреймворков и сборщиков.
+Magazin online de telefoane și căști, făcut cu PHP, SQLite, HTML, CSS și JavaScript.
 
-## Страницы
+## Pornire
 
-| Файл | Описание |
-|------|----------|
-| `pages/index.php` | Главная: шапка с меню, слайдер акций на JS, сетка популярных товаров |
-| `pages/catalog.php` | Каталог из 2 категорий («Смартфоны», «Наушники») с «живым» поиском без перезагрузки |
-| `pages/about.php` | О магазине: текст о компании, цифры, преимущества, контакты |
-| `pages/sponsors.php` | Форма для партнёров (Имя, Компания, Email, Текст), данные сохраняются в таблицу `sponsors` |
-| `pages/login.php` / `register.php` / `logout.php` | Вход, регистрация и выход через PHP-сессии, пароли хэшируются `password_hash` (bcrypt) |
-| `init_db.php` | Создаёт `database.db`, таблицы `users`, `products`, `sponsors` и 6 тестовых товаров |
-
-## Запуск
-
-Нужен PHP 8.1+ с расширением `pdo_sqlite`.
+Este nevoie de PHP 8 cu extensia `pdo_sqlite`.
 
 ```bash
-php init_db.php          # создать базу (необязательно: она создастся сама при первом открытии сайта)
-php -S localhost:8000    # запустить встроенный сервер
+php -S localhost:8000
 ```
 
-Откройте http://localhost:8000
+Apoi deschideți http://localhost:8000
 
-Все страницы лежат в папке `pages/`. Корневой `index.php` перенаправляет на `pages/index.php`.
+Baza de date `storage/database.db` se creează automat la prima pornire, din fișierul `database/schema.sql`.
 
-## Структура
+## Pagini
+
+- `pages/index.html` - pagina principală cu produsele populare
+- `pages/product.html` - toate produsele, căutare și filtrare pe categorii
+- `pages/details.html` - pagina unui produs
+- `pages/login.html` - autentificare
+- `pages/register.html` - înregistrare
+- `pages/account.html` - contul utilizatorului și coșul
+
+## Structura
 
 ```
-├── index.php            # редирект на pages/index.php
-├── init_db.php          # инициализация базы данных
-├── pages/               # index, catalog, about, sponsors, login, register, logout
-├── includes/            # подключение к БД, общие функции, шапка, подвал, карточка товара
-└── assets/
-    ├── css/style.css    # адаптивные стили (mobile-first брейкпоинты 960/820/600px)
-    ├── js/main.js       # слайдер, живой поиск, мобильное меню, показ пароля
-    └── img/             # SVG-иллюстрации товаров и логотип
+app/Models         Product.php, User.php
+app/Services       ProductService.php, UserService.php
+config             database.php
+database           schema.sql
+public             css, js, images
+pages              paginile HTML
+storage            baza de date SQLite
+index.php          cererile către server
 ```
-
-## Безопасность
-
-- Все SQL-запросы выполняются через подготовленные выражения PDO.
-- Весь вывод экранируется через `htmlspecialchars`.
-- Все формы защищены CSRF-токеном.
-- Пароли хэшируются через `password_hash` / `password_verify`, при входе выполняется `session_regenerate_id`.
-- Сессионная cookie выдаётся с флагами `HttpOnly` и `SameSite=Lax`.
-- Правила `.htaccess` закрывают доступ к `database.db` и папке `includes/` для Apache. Для nginx добавьте аналогичное правило `deny`.
